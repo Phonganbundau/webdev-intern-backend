@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 use App\Models\DiemThi;
@@ -16,10 +17,19 @@ class DiemThiSeeder extends Seeder
         }
 
         $file = fopen($filePath, 'r');
-        $header = fgetcsv($file); // dòng tiêu đề
+        $header = fgetcsv($file); // Dòng tiêu đề
 
         while (($row = fgetcsv($file)) !== false) {
             $data = array_combine($header, $row);
+
+           
+            $subjects = ['toan', 'ngu_van', 'ngoai_ngu', 'vat_li', 'hoa_hoc', 'sinh_hoc', 'lich_su', 'dia_li', 'gdcd'];
+            foreach ($subjects as $subject) {
+                $data[$subject] = $data[$subject] === '' ? null : (float) $data[$subject];
+            }
+
+           
+            $data['ma_ngoai_ngu'] = $data['ma_ngoai_ngu'] === '' ? null : $data['ma_ngoai_ngu'];
 
             DiemThi::create([
                 'sbd'       => $data['sbd'],
