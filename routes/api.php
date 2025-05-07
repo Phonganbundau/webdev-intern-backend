@@ -4,7 +4,6 @@ use App\Http\Controllers\DiemThiController;
 
 Route::prefix('diem-thi')->group(function () {
     Route::get('/tra-cuu/{sbd}', [DiemThiController::class, 'traCuu']);
-    Route::get('/bao-cao', [DiemThiController::class, 'baoCao']);
     Route::get('/thong-ke', [DiemThiController::class, 'thongKe']);
     Route::get('/top10-khoi-a', [DiemThiController::class, 'top10KhoiA']);
 });
