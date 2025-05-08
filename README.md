@@ -18,7 +18,7 @@ Link to frontend github: https://github.com/Phonganbundau/webdev-intern-frontend
 ## Features
 
 - **Candidate Score Lookup:**  
-  API to search scores by 6-digit candidate ID.
+  API to search scores by 8-digit candidate ID.
 
 - **Score Statistics:**  
   Count of candidates in each score range (>=8, 6–7.99, 4–5.99, <4) for each subject.
